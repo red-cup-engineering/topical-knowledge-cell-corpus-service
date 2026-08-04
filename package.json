@@ -1,0 +1,43 @@
+{
+  "name": "@red-cup-engineering/topical-knowledge-cell-corpus-service",
+  "version": "0.1.4",
+  "description": "Forms deterministic, disclosure-safe reconciliation intents for sovereign topical knowledge-cell corpora.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "files": [
+    "scripts",
+    "content",
+    "lib",
+    "ops",
+    "src"
+  ],
+  "exports": {
+    ".": "./lib/corpus.mjs",
+    "./law": "./lib/law.mjs",
+    "./protocol": "./src/protocol.mjs"
+  },
+  "bin": {
+    "serve-topical-knowledge-cell-corpus-a2a": "./scripts/server.mjs"
+  },
+  "scripts": {
+    "check": "node --check lib/law.mjs && node --check lib/corpus.mjs && node --check src/protocol.mjs && node --check src/runtime.mjs && node --check src/owned-runtime.mjs && node --check scripts/execute-a2a-task.mjs && node --check scripts/server.mjs && node --check test/*.test.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@a2a-js/sdk": "1.0.0-beta.0",
+    "@lenticule-science/witness-journal-rdf-projection-service": "1.0.3",
+    "@red-cup-engineering/a2a-agent-card-discovery-service": "1.0.1",
+    "@red-cup-engineering/a2a-contracted-agent-service": "2.0.5",
+    "@red-cup-engineering/a2a-rmn-part-service": "1.0.1",
+    "@red-cup-engineering/a2a-sovereign-operation-boundary-service": "1.0.1",
+    "@red-cup-engineering/ni-uri-services-section": "0.1.1",
+    "@red-cup-engineering/relation-model-notation-cbor-codec": "0.0.1",
+    "@red-cup-engineering/rmn-semantic-conformance": "6.0.2",
+    "@red-cup-engineering/semantic-content-identify-service": "0.2.2"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "urn:account:topical-knowledge-cell-corpus-service:resource-value",
+  "type": "ResourceValueAccount",
+  "owner": "urn:ame:topical-knowledge-cell-corpus-service",
+  "inputs": {
+    "rmnIdentityConformance": "unknown-not-zero",
+    "witnessJournalRdfDurability": "unknown-not-zero",
+    "validationAndComparison": "unknown-not-zero",
+    "storage": "unknown-not-zero"
+  },
+  "receipts": "append-only-provider-local",
+  "offeredRevenue": {
+    "assetId": "eip155:8453/erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "amountAtomic": "50000",
+    "basis": "one reconciliation intent"
+  },
+  "localDevelopmentAccount": {
+    "account": "eip155:31337:0x1456c08d43f4f9a1f549259babc5c126536edd65",
+    "binding": "../evm/accounts/eip155-31337.json",
+    "receivesRealUSDC": false
+  },
+  "settlementAccount": null,
+  "revenueRecognized": "only from exact settlement evidence or an accepted internal consideration receipt",
+  "zeroInferredFromUnknown": false
+}

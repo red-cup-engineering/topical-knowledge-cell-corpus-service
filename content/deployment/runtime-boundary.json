@@ -1,0 +1,32 @@
+{
+  "id": "urn:deployment-boundary:topical-knowledge-cell-corpus-service:v1",
+  "type": "DeploymentBoundary",
+  "version": 1,
+  "status": "active",
+  "runtimeAdapterModule": "./src/owned-runtime.mjs",
+  "processOwner": "urn:ame:topical-knowledge-cell-corpus-service",
+  "requiredProviders": [
+    "signed-a2a-contracted-agent-service",
+    "signed-rmn-semantic-conformance-service",
+    "signed-witness-journal-rdf-projection-service"
+  ],
+  "requiredSecrets": ["agent-card-signing-key"],
+  "writableRoots": ["data/"],
+  "readOnlyRoots": ["content/", "lib/"],
+  "networkDestinations": ["contracted-rmn-agent", "contracted-witness-journal-agent"],
+  "providerBindings": {
+    "rmnSemanticConformance": {
+      "agentUrl": "http://127.0.0.1:8786/.well-known/agent-card.json",
+      "agentCardIdentity": "ni:///sha-256;wLHza-NRp6h0oHk73N-S2nGmTuAYc3ylFAFq08xfXuc",
+      "agentCardSignature": "ni:///sha-256;KZPAr02l9Dxxue9zLkLI1k7USRRkansjv-8DhfjYjLU"
+    },
+    "witnessJournalRdf": {
+      "agentUrl": "http://127.0.0.1:19764/.well-known/agent-card.json",
+      "agentCardIdentity": "ni:///sha-256;dIvhnzXb1XmHUvbb6HB_3MPi9yUPo5vjV8s833tojq0",
+      "agentCardSignature": "ni:///sha-256;XrMhohdoz8NpI6WLsOjrvt-3IcYXwNR8G2FR30TEWKU"
+    }
+  },
+  "notebookProviderNetworkAccess": false,
+  "port": 19838,
+  "activationStatus": "active-local-development-chain-no-public-payment"
+}

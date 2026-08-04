@@ -1,0 +1,21 @@
+[Unit]
+Description=Bare Cedar Fog Topical Knowledge Cell Corpus Service A2A boundary
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/emsenn/info/lib/emsenn/services/561-group/services/red-cup-engineering/services/software-services-section/services/topical-knowledge-cell-corpus-service
+ExecStart=/home/emsenn/.config/nvm/versions/node/v24.13.1/bin/node bin/server.mjs
+Environment=HOST=127.0.0.1
+Environment=PORT=19838
+Environment=BASE_URL=http://127.0.0.1:19838
+Environment=AGENT_CARD_SIGNING_KEY=/home/emsenn/info/lib/emsenn/services/561-group/services/red-cup-engineering/services/software-services-section/services/topical-knowledge-cell-corpus-service/data/credentials/agent-card.pkcs8.pem
+Environment=AGENT_CARD_JWKS=/home/emsenn/info/lib/emsenn/services/561-group/services/red-cup-engineering/services/software-services-section/services/topical-knowledge-cell-corpus-service/content/agent-cards/topical-knowledge-cell-corpus-service-jwks.json
+Environment=AGENT_CARD_SIGNING_KID=topical-knowledge-cell-corpus-service-ed25519
+Environment=RMN_SEMANTIC_AGENT=http://127.0.0.1:8786/.well-known/agent-card.json
+Environment=WITNESS_JOURNAL_RDF_AGENT=http://127.0.0.1:19764/.well-known/agent-card.json
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target
