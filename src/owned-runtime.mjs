@@ -26,13 +26,13 @@ async function verified(binding, role) {
 }
 
 export async function createTopicalKnowledgeCellCorpusRuntime({ boundary, root }) {
-  const bindingReceipt = identifyWitnessDocument(relationalWitnessJournalDocument(boundary.providerBindings), "topical-knowledge-cell.provider-bindings").token;
+  const bindingRecord = identifyWitnessDocument(relationalWitnessJournalDocument(boundary.providerBindings), "topical-knowledge-cell.provider-bindings").token;
   let rmnAgentUrl = boundary.providerBindings?.rmnSemanticConformance?.agentUrl;
-  let witnessJournalAgentUrl = boundary.providerBindings?.witnessJournalRdf?.agentUrl;
-  if (process.env.TOPICAL_CORPUS_PROVIDER_BINDING_RECEIPT !== bindingReceipt) {
+  let witnessLogAgentUrl = boundary.providerBindings?.witnessJournalRdf?.agentUrl;
+  if (process.env.TOPICAL_CORPUS_PROVIDER_BINDING_RECEIPT !== bindingRecord) {
     rmnAgentUrl = await verified(boundary.providerBindings?.rmnSemanticConformance, "RMN");
-    witnessJournalAgentUrl = await verified(boundary.providerBindings?.witnessJournalRdf, "WitnessJournal");
-    process.env.TOPICAL_CORPUS_PROVIDER_BINDING_RECEIPT = bindingReceipt;
+    witnessLogAgentUrl = await verified(boundary.providerBindings?.witnessJournalRdf, "WitnessJournal");
+    process.env.TOPICAL_CORPUS_PROVIDER_BINDING_RECEIPT = bindingRecord;
   }
   const dataRoot = resolve(root, "data");
   async function identify(value) {
@@ -58,7 +58,7 @@ export async function createTopicalKnowledgeCellCorpusRuntime({ boundary, root }
       lookupRequest: async (requestId) =>
         (await querySettlementRecords(CATEGORY)).find((record) => record.requestId === requestId) ?? null,
       record: async (record) => recordSettlementRecord({
-        agentUrl: witnessJournalAgentUrl,
+        agentUrl: witnessLogAgentUrl,
         settlement: ACCOUNT,
         actor: ACTOR,
         category: CATEGORY,
