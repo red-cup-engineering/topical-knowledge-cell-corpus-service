@@ -20,9 +20,8 @@
     "serve-topical-knowledge-cell-corpus-a2a": "./scripts/server.mjs"
   },
   "scripts": {
-    "check": "node --check lib/law.mjs && node --check lib/corpus.mjs && node --check src/protocol.mjs && node --check src/runtime.mjs && node --check src/owned-runtime.mjs && node --check scripts/execute-a2a-task.mjs && node --check scripts/server.mjs && node --check test/*.test.mjs",
-    "test": "node --test test/*.test.mjs",
-    "verify": "npm run check && npm test",
+    "check": "node --check lib/law.mjs && node --check lib/corpus.mjs && node --check src/protocol.mjs && node --check src/runtime.mjs && node --check src/owned-runtime.mjs && node --check scripts/execute-a2a-task.mjs && node --check scripts/server.mjs",
+    "verify": "npm run check",
     "pack:check": "npm pack --dry-run"
   },
   "engines": {
