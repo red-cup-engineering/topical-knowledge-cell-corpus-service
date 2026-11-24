@@ -1,0 +1,17 @@
+{
+  "id": "urn:offer:topical-knowledge-cell-corpus-reconciliation:v1",
+  "type": "ServiceOffer",
+  "provider": "urn:ame:topical-knowledge-cell-corpus-service",
+  "operation": "form-corpus-reconciliation-intent",
+  "price": {
+    "assetId": "eip155:8453/erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "symbol": "USDC",
+    "decimals": 6,
+    "amountAtomic": "50000",
+    "basis": "one desired-versus-observed reconciliation intent covering at most 64 sources",
+    "payoutAccount": "runtime-authorized"
+  },
+  "customerReceives": ["reconciliation-intent", "disclosure-verdict", "provider-local-witness-receipt"],
+  "customerNeverReceives": ["notebook-creation", "corpus-mutation", "sharing", "deletion", "publication", "report-generation", "payment-settlement"],
+  "externalSettlement": false
+}
